@@ -13,9 +13,8 @@ angular.module('starter.controllers', [])
       store.set('token', idToken);
       store.set('refreshToken', refreshToken);
       alert("accessToken = "+accessToken);
-      store.set('accessToken', accessToken);
       store.set('at',profile.identities[0].access_token);
-      $state.go('tab.dash');
+      $state.go('app.home');
     }, function(error) {
       console.log("There was an error logging in", error);
     });
@@ -34,7 +33,7 @@ angular.module('starter.controllers', [])
   alert("profile identities = "+JSON.stringify(store.get('profile').identities[0], null, 4));
   alert("profile access token = "+store.get('profile').identities[0].access_token);
   var accessToken = store.get('profile').identities[0].access_token;
-  
+
   $scope.postToYammer = function() {
     var req = {
      method: 'POST',
@@ -48,11 +47,6 @@ angular.module('starter.controllers', [])
         'accessToken': accessToken
      }
     };
-    /*var url = 'https://www.yammer.com/api/v1/messages.json';
-    var data = { 
-        body: 'posting status from android app - testing!!!', 
-        group_id: '4720489'
-    };*/
     $http(req).
     success(function(data, status, headers, config) {
       // this callback will be called asynchronously

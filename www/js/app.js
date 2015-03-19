@@ -34,65 +34,143 @@ angular.module('starter', ['ionic',
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
+  // Login State
   .state('login', {
     url: "/login",
     templateUrl: "templates/login.html",
     controller: 'LoginCtrl'
   })
 
-  // setup an abstract state for the tabs directive
-  .state('tab', {
-    url: "/tab",
+  // Setup sidemenu template as abstract navigation
+  .state('app', {
+    url: "/app",
     abstract: true,
-    templateUrl: "templates/tabs.html",
+    templateUrl: "templates/menu.html",
     data: {
       requiresLogin: true
     }
   })
 
-  // Each tab has its own nav history stack:
-
-  .state('tab.dash', {
-    url: '/dash',
+  // Setup side menus
+  // HOME
+  .state('app.home', {
+    url: "/home",
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
+      'menuContent': {
+        templateUrl: 'templates/sidemenu/home.html',
+      }
+    }
+  })
+
+  // CAREER
+  .state('app.career', {
+    url: "/career",
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/career.html',
+      }
+    }
+  })
+
+  // AVNET PLAY
+  .state('app.avnetplay', {
+    url: "/avnetplay",
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/sidemenu/avnetplay.html',
+      }
+    }
+  })
+
+  // GAMES
+  .state('app.games', {
+    url: "/games",
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/sidemenu/games.html',
+      }
+    }
+  })
+
+  // LEADERBOARD
+  .state('app.leaderboard', {
+    url: "/leaderboard",
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/sidemenu/leaderboard.html',
+      }
+    }
+  })
+
+  // APPROVAL
+  .state('app.approval', {
+    url: "/approval",
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/sidemenu/approval.html',
+      }
+    }
+  })
+
+  // CAREER TABS
+  // GOALS
+  .state('app.career.goals', {
+    url: '/goals',
+    views: {
+      'tab-goals': {
+        templateUrl: 'templates/career/tab-goals.html',
         controller: 'DashCtrl'
       }
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
-
-  .state('tab.account', {
-    url: '/account',
+  // PROJECTS
+  .state('app.career.projects', {
+    url: '/projects',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-projects': {
+        templateUrl: 'templates/career/tab-projects.html',
+        controller: 'DashCtrl'
+      }
+    }
+  })
+
+  // ASSETS
+  .state('app.career.assets', {
+    url: '/assets',
+    views: {
+      'tab-assets': {
+        templateUrl: 'templates/career/tab-assets.html',
+        controller: 'DashCtrl'
+      }
+    }
+  })
+
+  // PRESENTATIONS
+  .state('app.career.presentations', {
+    url: '/presentations',
+    views: {
+      'tab-presentations': {
+        templateUrl: 'templates/career/tab-presentations.html',
+        controller: 'DashCtrl'
+      }
+    }
+  })
+
+  // CODES N GEARS
+  .state('app.career.cng', {
+    url: '/cng',
+    views: {
+      'tab-cng': {
+        templateUrl: 'templates/career/tab-cng.html',
+        controller: 'DashCtrl'
       }
     }
   });
 
+  
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('app/home');
 
   // Configure Auth0
   authProvider.init({
