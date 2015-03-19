@@ -10,7 +10,8 @@ angular.module('starter', ['ionic',
   'starter.services',
   'auth0',
   'angular-storage',
-  'angular-jwt'])
+  'angular-jwt',
+  'angular-jqcloud'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -78,6 +79,7 @@ angular.module('starter', ['ionic',
     views: {
       'menuContent': {
         templateUrl: 'templates/sidemenu/avnetplay.html',
+        controller: 'AvnetplayCtrl'
       }
     }
   })
@@ -98,6 +100,7 @@ angular.module('starter', ['ionic',
     views: {
       'menuContent': {
         templateUrl: 'templates/sidemenu/leaderboard.html',
+        controller: 'LeaderboardCtrl'
       }
     }
   })
@@ -119,7 +122,7 @@ angular.module('starter', ['ionic',
     views: {
       'tab-goals': {
         templateUrl: 'templates/career/tab-goals.html',
-        controller: 'DashCtrl'
+        controller: 'GoalsCtrl'
       }
     }
   })

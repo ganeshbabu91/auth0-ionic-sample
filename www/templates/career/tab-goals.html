@@ -1,5 +1,16 @@
 <ion-view view-title="Goals">
   <ion-content class="padding">
     <h1>Goals</h1>
+
+    <ion-checkbox ng-repeat="goal in goals"
+                      ng-model="goal.status" 
+                      ng-checked="goal.status"
+                      ng-disabled="goal.isCompleted"
+                      class="checkbox-dark">
+          {{ goal.name }}
+    </ion-checkbox>
+
+    <button class="button button-dark button-block" style="top:20px;" ng-click="submitGoals()">Submit</button>
+
   </ion-content>
 </ion-view>

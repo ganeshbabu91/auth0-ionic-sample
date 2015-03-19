@@ -1,1 +1,20 @@
 /* Empty. Add your own CSS if you like */
+.avnet-badge{
+	top: 20px;
+	font-size: 20px;
+	padding: 11px 16px;
+}
+.avnet-leaderboard{
+	top: 48px;
+}
+.avnet-bar-header{
+	top: -5px;
+}
+.jqcloud {
+	width: 500px;
+	height: 350px;
+	position: relative;
+	float: left;
+	right: 78px;
+	bottom: 82px;
+}

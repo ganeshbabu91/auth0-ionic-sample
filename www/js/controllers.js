@@ -62,6 +62,47 @@ angular.module('starter.controllers', [])
 
 })
 
+.controller('GoalsCtrl', function($scope, $http, store, Goals) {
+   $scope.goals = Goals.all();
+   console.log("Before submit : "+JSON.stringify($scope.goals, null, 4));
+   $scope.submitGoals = function(){
+      console.log("After submit "+JSON.stringify($scope.goals, null, 4));
+   };
+})
+
+.controller('LeaderboardCtrl', function($scope, $http, store, UserScores) {
+   $scope.userScores = UserScores.all();
+})
+
+.controller('AvnetplayCtrl', function($scope, $http, $state, store, AvnetTags) {
+   //$scope.words = AvnetTags.all();
+   var avnetTags = [
+
+      {text: "#APL", weight: 13, handlers:{
+         click: function(e){
+          console.log("e = %o",e);
+          $state.go('app.home');
+          alert("clicked apl");
+        }
+      }},
+      {text: "#TT", weight: 10.5,  handlers:{
+        click: function(){
+          alert("clicked tt");
+        }
+      }},
+      {text: "#Outing", weight: 9.4},
+      {text: "#Carom", weight: 8},
+      {text: "#party", weight: 6.2},
+      {text: "#indoor", weight: 5},
+      {text: "#C&G", weight: 11},
+      {text: "#fifa", weight: 5},
+      {text: "#pantry", weight: 5}
+  
+  ];
+  $scope.words = avnetTags;
+   $scope.colors = ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976"];
+})
+
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {

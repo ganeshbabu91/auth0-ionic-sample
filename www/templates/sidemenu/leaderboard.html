@@ -1,5 +1,15 @@
 <ion-view view-title="Leaderboard">
   <ion-content>
-    <h1>Leaderboard</h1>
+    <div class="bar bar-header avnet-bar-header">
+    	<h1 class="title">Leaderboard</h1>
+    </div>
+    <div class="list card avnet-leaderboard">
+	    <a class="item item-avatar" href="#" ng-repeat="userScore in userScores">
+	      <img ng-src="{{userScore.imagelink}}">
+	      <h2>{{userScore.user}}</h2>
+	      <p><i class="icon ion-social-usd"></i> {{userScore.points}}</p>
+	      <span class="badge badge-dark avnet-badge">{{userScore.rank}}</span>
+	    </a>
+	</div>
   </ion-content>
 </ion-view>
